@@ -1,0 +1,89 @@
+<div *ngIf="xmlContent || jsonContent" class="display-files-container">
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Ex. bedroom"
+      #input
+    />
+  </mat-form-field>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Nume</th>
+        <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="birthDate">
+        <th mat-header-cell *matHeaderCellDef>Data nasterii</th>
+        <td mat-cell *matCellDef="let row">{{ row.birthDate }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="medical_history">
+        <th mat-header-cell *matHeaderCellDef colspan="3">
+          <div style="text-align: center;">Istoric medical</div>
+          <div class="divider"></div>
+          <div style="display: flex;">
+            <div style="flex: 1;">Alergii</div>
+            <div style="flex: 1;">Boli cronice</div>
+            <div style="flex: 1;">Istoric medical</div>
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let row" colspan="3">
+          <div style="display: flex;">
+            <div style="flex: 1">{{ row.allergies == 'Niciuna' ? '-' : row.allergies}}</div>
+            <div style="flex: 1">{{ row.chronic_diseases == 'Niciuna' ? '-' : row.chronic_diseases }}</div>
+            <div style="flex: 1">{{ row.surgical_history == 'Niciuna' ? '-' : row.surgical_history}}</div>
+          </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="diagnosis">
+        <th mat-header-cell *matHeaderCellDef>Diagnosis</th>
+        <td mat-cell *matCellDef="let row">{{ row.diagnosis }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="treatment">
+        <th mat-header-cell *matHeaderCellDef>Tratament</th>
+        <td mat-cell *matCellDef="let row">{{ row.treatment }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="eeg_signals">
+        <th mat-header-cell *matHeaderCellDef colspan="2">
+          <div style="text-align: center;">EEG</div>
+          <div class="divider"></div>
+          <div style="display: flex;">
+            <div style="flex: 1;">Semnale de interes</div>
+            <div style="flex: 1;">Interpretare</div>
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let row" colspan="2">
+          <div style="display: flex;">
+            <div style="flex: 1;">{{ row.eeg_date }}</div>
+            <div style="flex: 1;">{{ row.interpretation }}</div>
+          </div>
+        </td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="6">No data matching the filter</td>
+      </tr>
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      aria-label="Select page of users"
+    ></mat-paginator>
+  </div>
+</div>

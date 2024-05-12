@@ -1,0 +1,18 @@
+.upload-files-text-and-input {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  margin-left: 100px;
+  margin-top: 50px;
+
+  .upload-files-text {
+    font-size: 30px;
+    color: white;
+    margin-right: 50px;
+  }
+
+  .upload-files-input {
+    color: white;
+  }
+}

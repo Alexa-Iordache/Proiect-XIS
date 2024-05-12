@@ -1,0 +1,22 @@
+<div class="main-page-container">
+  <div class="main-page-title">
+    Modelarea informatiilor despre pacienti pastrand datele si imaginile EEG
+  </div>
+  <div class="main-page-text">
+    Aceasta platforma permite modelarea datelor pacienților și a informațiilor
+    EEG asociate în XML în domeniul medical, cu accent pe diagnosticul și
+    monitorizarea activităților cerebrale. Cadrul medical poate sa incarce un
+    fisier de tip XML sau un fisier JSON pentru a prelucra datele intr-un mod
+    mai usor. Dupa ce fisierele sunt incarcate, informatiile sunt afisate
+    intr-un tabel
+  </div>
+  <app-upload-files
+    (xmlFileUploaded)="onXMLFileUploaded($event)"
+    (jsonFileUploaded)="onJSONFileUploaded($event)"
+  ></app-upload-files>
+    <app-display-files
+      class="display-files"
+      [xmlContent]="xmlContent"
+      [jsonContent]="jsonContent"
+    ></app-display-files>
+</div>

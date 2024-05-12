@@ -1,0 +1,23 @@
+<!ELEMENT pacienti (pacient+)>
+<!ELEMENT pacient (nume, prenume, data_nastere, sex?, adresa?, istoric_medical, diagnostic, tratament, eeg)>
+<!ELEMENT nume (#PCDATA)>
+<!ELEMENT prenume (#PCDATA)>
+<!ELEMENT data_nastere (#PCDATA)>
+<!ELEMENT sex (#PCDATA)>
+<!ELEMENT adresa (#PCDATA)>
+<!ELEMENT istoric_medical (alergii, boli_cronice, antecedente_chirurgicale)>
+<!ELEMENT alergii (#PCDATA)>
+<!ELEMENT boli_cronice (#PCDATA)>
+<!ELEMENT antecedente_chirurgicale (#PCDATA)>
+<!ELEMENT diagnostic (#PCDATA)>
+<!ELEMENT tratament (#PCDATA)>
+<!ELEMENT eeg (data_inregistrare, ora_inregistrare, imagine_eeg, interpretare, semnale_eeg_de_interes)>
+<!ELEMENT data_inregistrare (#PCDATA)>
+<!ELEMENT ora_inregistrare (#PCDATA)>
+<!ELEMENT imagine_eeg (#PCDATA)>
+<!ELEMENT interpretare (#PCDATA)>
+<!ELEMENT semnale_eeg_de_interes (semnal+)>
+<!ELEMENT semnal (denumire_electrod, amplitudine, frecventa)>
+<!ELEMENT denumire_electrod (#PCDATA)>
+<!ELEMENT amplitudine (#PCDATA)>
+<!ELEMENT frecventa (#PCDATA)>

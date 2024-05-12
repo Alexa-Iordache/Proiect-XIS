@@ -1,0 +1,160 @@
+{
+  "pacienti": [
+    {
+      "nume": "Ana",
+      "prenume": "Ionescu",
+      "data_nastere": "20-03-1997",
+      "sex": "Feminin",
+      "adresa": "str. Florilor, nr. 23, Bucuresti",
+      "istoric_medical": {
+        "alergii": "Niciuna",
+        "boli_cronice": "Niciuna",
+        "antecedente_chirurgicale": "Niciuna"
+      },
+      "diagnostic": "Tulburare de somn",
+      "tratament": "Somnifere",
+      "eeg": {
+        "data_inregistrare": "12-02-2024",
+        "ora_inregistrare": "10:00",
+        "imagine_eeg": "imagini_eeg/ana_ionescu_12022024.png",
+        "interpretare": "Activitate cerebrală normală",
+        "semnale_eeg_de_interes": [
+          {
+            "denumire_electrod": "LG",
+            "amplitudine": "10 µV",
+            "frecventa": "10 Hz"
+          },
+          {
+            "denumire_electrod": " RG ",
+            "amplitudine": "12 µV",
+            "frecventa": "12 Hz"
+          },
+          {
+            "denumire_electrod": "LA",
+            "amplitudine": "11 µV",
+            "frecventa": "10 Hz"
+          },
+          {
+            "denumire_electrod": "RA",
+            "amplitudine": "9 µV",
+            "frecventa": "13 Hz"
+          },
+          {
+            "denumire_electrod": "LQ",
+            "amplitudine": "15 µV",
+            "frecventa": "15 Hz"
+          },
+          {
+            "denumire_electrod": "RQ",
+            "amplitudine": "10 µV",
+            "frecventa": "11 Hz"
+          }
+        ]
+      }
+    },
+    {
+      "nume": "Alexandru",
+      "prenume": "Popescu",
+      "data_nastere": "15-09-1985",
+      "sex": "Masculin",
+      "adresa": "str. Mihai Viteazu, nr. 10, Cluj-Napoca",
+      "istoric_medical": {
+        "alergii": "Polen",
+        "boli_cronice": "Niciuna",
+        "antecedente_chirurgicale": "Niciuna"
+      },
+      "diagnostic": "Epilepsie",
+      "tratament": "Antiepileptice",
+      "eeg": {
+        "data_inregistrare": "15-03-2024",
+        "ora_inregistrare": "08:30",
+        "imagine_eeg": "imagini_eeg/ioan_popescu_15032024.png",
+        "interpretare": "Activitate epileptică detectată",
+        "semnale_eeg_de_interes": [
+          {
+            "denumire_electrod": "LO",
+            "amplitudine": "14 µV",
+            "frecventa": "8 Hz"
+          },
+          {
+            "denumire_electrod": "RO",
+            "amplitudine": "13 µV",
+            "frecventa": "8 Hz"
+          },
+          {
+            "denumire_electrod": "LA",
+            "amplitudine": "14 µV",
+            "frecventa": "8 Hz"
+          },
+          {
+            "denumire_electrod": "RA",
+            "amplitudine": "14 µV",
+            "frecventa": "14 Hz"
+          },
+          {
+            "denumire_electrod": "LB",
+            "amplitudine": "15 µV",
+            "frecventa": "10 Hz"
+          },
+          {
+            "denumire_electrod": "RB",
+            "amplitudine": "9 µV",
+            "frecventa": "11 Hz"
+          },
+          {
+            "denumire_electrod": "LE",
+            "amplitudine": "9 µV",
+            "frecventa": "12 Hz"
+          },
+          {
+            "denumire_electrod": "RE",
+            "amplitudine": "10 µV",
+            "frecventa": "12 Hz"
+          }
+        ]
+      }
+    },
+    {
+      "nume": "Maria",
+      "prenume": "Georgescu",
+      "data_nastere": "05-07-1976",
+      "sex": "Feminin",
+      "adresa": "str. Rozelor, nr. 5, Timisoara",
+      "istoric_medical": {
+        "alergii": "Niciuna",
+        "boli_cronice": "Hipertensiune arterială",
+        "antecedente_chirurgicale": "Chirurgie cardiacă în 2010"
+      },
+      "diagnostic": "Migrenă cronică",
+      "tratament": "Analgezice",
+      "eeg": {
+        "data_inregistrare": "28-01-2024",
+        "ora_inregistrare": "11:45",
+        "imagine_eeg": "imagini_eeg/maria_georgescu_28052024.png",
+        "interpretare": "Activitate cerebrală normală, cu semne de hiperexcitabilitate în anumite regiuni",
+        "semnale_eeg_de_interes": [
+          {
+            "denumire_electrod": "LH",
+            "amplitudine": "9 µV",
+            "frecventa": "12 Hz"
+          },
+          {
+            "denumire_electrod": "RH",
+            "amplitudine": "10 µV",
+            "frecventa": "11 Hz"
+          },
+          {
+            "denumire_electrod": "LG",
+            "amplitudine": "10 µV",
+            "frecventa": "13 Hz"
+          },
+          {
+            "denumire_electrod": "RG",
+            "amplitudine": "9 µV",
+            "frecventa": "15 Hz"
+          }
+        ]
+      }
+    }
+  ]
+}

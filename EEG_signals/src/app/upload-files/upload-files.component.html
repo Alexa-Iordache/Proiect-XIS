@@ -1,0 +1,18 @@
+<div class="upload-files-text-and-input">
+  <div class="upload-files-text">Incarca fisierul XML:</div>
+  <input
+    class="upload-files-input"
+    type="file"
+    (change)="onXMLFileChange($event)"
+    accept=".xml"
+  />
+</div>
+<div class="upload-files-text-and-input">
+  <div class="upload-files-text">Incarca fisierul JSON:</div>
+  <input
+    class="upload-files-input"
+    type="file"
+    (change)="onJSONFileChange($event)"
+    accept=".json"
+  />
+</div>
