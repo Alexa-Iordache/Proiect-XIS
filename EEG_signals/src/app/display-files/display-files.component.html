@@ -1,22 +1,21 @@
 <div class="display-files-container">
-  <div *ngIf="xmlContent && transformedHtml" class="display-files-text">
-    Date preluate din fisierul XML:
+  <div *ngIf="transformedHtml" class="xml-container">
+    <div class="display-files-text">Date preluate din fisierul XML:</div>
+    <input
+      class="xml-data-filter"
+      type="text"
+      (input)="applyFilterForXML($event)"
+      placeholder="Ex: Ana"
+    />
+    <div [innerHTML]="transformedHtml"></div>
   </div>
-  <input
-    *ngIf="transformedHtml"
-    class="xml-data-filter"
-    type="text"
-    (input)="applyFilterForXML($event)"
-    placeholder="Ex: Ana"
-  />
-  <div *ngIf="transformedHtml" [innerHTML]="transformedHtml"></div>
 
   <div *ngIf="jsonContent" class="display-files-text">
     Date preluate din fisierul JSON:
   </div>
   <div *ngIf="jsonContent" class="material-table">
     <mat-form-field>
-      <mat-label>Filter</mat-label>
+      <mat-label>Ex: Ana</mat-label>
       <input
         matInput
         (keyup)="applyFilter($event)"
