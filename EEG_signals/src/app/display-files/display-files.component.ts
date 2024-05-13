@@ -14,6 +14,7 @@ export interface PatientData {
   treatment: string;
   eeg_date: string;
   interpretation: string;
+  img: string;
 }
 
 @Component({
@@ -33,7 +34,7 @@ export class DisplayFilesComponent {
     'medical_history',
     'diagnosis',
     'treatment',
-    'eeg_signals',
+    'eeg_signals'
   ];
   dataSource: MatTableDataSource<PatientData> = new MatTableDataSource();
   transformedHtml = '';
@@ -67,6 +68,7 @@ export class DisplayFilesComponent {
       treatment: patient.tratament,
       eeg_date: patient.eeg.data_inregistrare,
       interpretation: patient.eeg.interpretare,
+      img: patient.eeg.imagine_eeg
     }));
     this.dataSource.data = this.patients;
   }

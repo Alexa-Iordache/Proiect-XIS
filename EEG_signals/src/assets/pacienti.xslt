@@ -12,7 +12,7 @@
           <th colspan="3">Istoric medical</th>
           <th>Diagnostic</th>
           <th>Tratament</th>
-          <th colspan="2">EEG</th>
+          <th colspan="3">EEG</th>
         </tr>
         <tr>
           <th></th>
@@ -25,6 +25,7 @@
           <th></th>
           <th>Data inregistrare EEG</th>
           <th>Interpretare EEG</th>
+          <th>Imagine</th>
         </tr>
       </thead>
       <tbody>
@@ -37,7 +38,6 @@
   <!-- Șablonul pentru fiecare pacient -->
   <xsl:template match="pacient">
     <tr>
-      <!-- Apply the filter function to the row -->
       <td><xsl:value-of select="position()"/></td>
       <td><xsl:value-of select="nume"/></td>
       <td><xsl:value-of select="data_nastere"/></td>
@@ -48,6 +48,7 @@
       <td><xsl:value-of select="tratament"/></td>
       <td><xsl:value-of select="eeg/data_inregistrare"/></td>
       <td><xsl:value-of select="eeg/interpretare"/></td>
+      <td><xsl:value-of select="eeg/imagine_eeg"/></td>
     </tr>
   </xsl:template>
 
