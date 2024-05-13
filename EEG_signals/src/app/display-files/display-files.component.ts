@@ -1,6 +1,5 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
 // Interface for a patient (row in a table)
@@ -39,11 +38,10 @@ export class DisplayFilesComponent {
   dataSource: MatTableDataSource<PatientData> = new MatTableDataSource();
   transformedHtml = '';
 
+  // Paginator for JSON data table
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
-  @ViewChild(MatSort) sort: MatSort | undefined;
 
-  constructor() {}
-
+  // Fetch data from files
   ngOnChanges(): void {
     if (this.xmlContent) {
       this.transformXmlToHtml(this.xmlContent);
@@ -54,6 +52,7 @@ export class DisplayFilesComponent {
     }
   }
 
+  // Fetch data from JSON file
   private parseJSON(jsonString: string): void {
     const jsonData = JSON.parse(jsonString);
 
@@ -72,6 +71,7 @@ export class DisplayFilesComponent {
     this.dataSource.data = this.patients;
   }
 
+  // Fetch data from XML file and transform it in HTML using XSLT file
   private transformXmlToHtml(xmlString: string): void {
     const xsltPath = 'assets/pacienti.xslt';
 
@@ -110,15 +110,12 @@ export class DisplayFilesComponent {
     }
   }
 
+  // Apply paginator for JSON data table
   ngAfterViewInit(): void {
     if (this.paginator) this.dataSource.paginator = this.paginator;
-    if (this.sort) {
-      this.dataSource.sort = this.sort;
-    } else {
-      console.log('MatSort is not initialized or not available.');
-    }
   }
 
+  // Apply filter for JSON data table
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -128,6 +125,7 @@ export class DisplayFilesComponent {
     }
   }
 
+  // Apply filter for XML data table
   applyFilterForXML(event: any): void {
     const filterValue = event.target.value.toLowerCase();
     const tableRows = document.querySelectorAll('tr');
