@@ -153,4 +153,15 @@ export class DisplayFilesComponent {
       this.dataSource.paginator.firstPage();
     }
   }
+
+  applyFilterForXML(event: any): void {
+    const filterValue = event.target.value.toLowerCase();
+    const tableRows = document.querySelectorAll('tr');
+    tableRows.forEach((row) => {
+      const textContent = row.textContent || row.innerText;
+      row.style.display = textContent.toLowerCase().includes(filterValue)
+        ? ''
+        : 'none';
+    });
+  }
 }
