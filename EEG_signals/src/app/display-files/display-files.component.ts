@@ -1,5 +1,4 @@
 import { Component, Input, ViewChild } from '@angular/core';
-import * as xml2js from 'xml2js';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -54,31 +53,6 @@ export class DisplayFilesComponent {
       this.parseJSON(this.jsonContent);
     }
   }
-
-  // private parseXML(xmlString: string): void {
-  //   xml2js.parseString(xmlString, (err: any, result: any) => {
-  //     if (err) {
-  //       console.error(err);
-  //       return;
-  //     }
-  //     this.patients = result.pacienti.pacient.map(
-  //       (patient: any, index: number) => ({
-  //         id: (index + 1).toString(),
-  //         name: `${patient.nume} ${patient.prenume}`,
-  //         birthDate: patient.data_nastere,
-  //         allergies: patient.istoric_medical[0].alergii,
-  //         chronic_diseases: patient.istoric_medical[0].boli_cronice,
-  //         surgical_history: patient.istoric_medical[0].antecedente_chirurgicale,
-  //         diagnosis: patient.diagnostic,
-  //         treatment: patient.tratament,
-  //         eeg_date: patient.eeg[0].data_inregistrare,
-  //         interpretation: patient.eeg[0].interpretare,
-  //       })
-  //     );
-  //     this.dataSource.data = this.patients;
-  //     console.log(this.dataSource.data);
-  //   });
-  // }
 
   private parseJSON(jsonString: string): void {
     const jsonData = JSON.parse(jsonString);
@@ -157,7 +131,10 @@ export class DisplayFilesComponent {
   applyFilterForXML(event: any): void {
     const filterValue = event.target.value.toLowerCase();
     const tableRows = document.querySelectorAll('tr');
-    tableRows.forEach((row) => {
+    tableRows.forEach((row, index) => {
+      // Display the table header
+      if (index === 0 || index === 1) return;
+
       const textContent = row.textContent || row.innerText;
       row.style.display = textContent.toLowerCase().includes(filterValue)
         ? ''

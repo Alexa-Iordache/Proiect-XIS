@@ -15,14 +15,14 @@
           <th colspan="2">EEG</th>
         </tr>
         <tr>
-          <th>ID</th>
-          <th>Nume</th>
-          <th>Data nasterii</th>
+          <th></th>
+          <th></th>
+          <th></th>
           <th>Alergii</th>
           <th>Boli cronice</th>
           <th>Antecedente chirurgicale</th>
-          <th>Diagnostic</th>
-          <th>Tratament</th>
+          <th></th>
+          <th></th>
           <th>Data inregistrare EEG</th>
           <th>Interpretare EEG</th>
         </tr>

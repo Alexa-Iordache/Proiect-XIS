@@ -4,9 +4,10 @@
   </div>
   <input
     *ngIf="transformedHtml"
+    class="xml-data-filter"
     type="text"
     (input)="applyFilterForXML($event)"
-    placeholder="Filter..."
+    placeholder="Ex: Ana"
   />
   <div *ngIf="transformedHtml" [innerHTML]="transformedHtml"></div>
 
