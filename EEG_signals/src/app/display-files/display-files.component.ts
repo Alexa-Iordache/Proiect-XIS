@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
+// Interface for a patient (row in a table)
 export interface PatientData {
   id: string;
   name: string;
@@ -37,6 +38,7 @@ export class DisplayFilesComponent {
     'eeg_signals'
   ];
   dataSource: MatTableDataSource<PatientData> = new MatTableDataSource();
+  transformedHtml = '';
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   @ViewChild(MatSort) sort: MatSort | undefined;
@@ -45,8 +47,48 @@ export class DisplayFilesComponent {
 
   ngOnChanges(): void {
     if (this.xmlContent) {
-      this.parseXML(this.xmlContent);
+      const xmlData = this.xmlContent;
+      // Define XSLT file path
+      const xsltPath = 'assets/pacienti.xslt';
+
+      // Load XSLT file
+      if (xsltPath) {
+        const xsltProcessor = new XSLTProcessor();
+        const xsltRequest = new XMLHttpRequest();
+        xsltRequest.open('GET', xsltPath, true);
+        xsltRequest.onreadystatechange = () => {
+          if (xsltRequest.readyState === XMLHttpRequest.DONE) {
+            if (xsltRequest.status === 200) {
+              const xsltDocument = xsltRequest.responseXML;
+              if (xsltDocument) {
+                xsltProcessor.importStylesheet(xsltDocument);
+
+                // Perform XSLT transformation
+                const xmlDoc = new DOMParser().parseFromString(
+                  xmlData,
+                  'text/xml'
+                );
+                const transformedDocument = xsltProcessor.transformToDocument(
+                  xmlDoc
+                );
+                const serializer = new XMLSerializer();
+                this.transformedHtml = serializer.serializeToString(
+                  transformedDocument
+                );
+              } else {
+                console.error('Failed to load XSLT document');
+              }
+            } else {
+              console.error('Failed to load XSLT file');
+            }
+          }
+        };
+        xsltRequest.send();
+      } else {
+        console.error('XSLT file path is undefined');
+      }
     }
+
     if (this.jsonContent) {
       this.parseJSON(this.jsonContent);
     }
@@ -111,25 +153,5 @@ export class DisplayFilesComponent {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
-  }
-
-  transformXML(): void {
-    const xmlData = `<your_xml_data_here>`;
-    const xslData = `<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-      <!-- Define your XSLT stylesheet here -->
-    </xsl:stylesheet>`;
-
-    const xsltProcessor = new XSLTProcessor();
-    const parser = new DOMParser();
-    const xmlDoc = parser.parseFromString(xmlData, 'text/xml');
-    const xslDoc = parser.parseFromString(xslData, 'text/xml');
-
-    xsltProcessor.importStylesheet(xslDoc);
-    const resultDocument = xsltProcessor.transformToDocument(xmlDoc);
-
-    // Convert the transformed document to string and use it as needed
-    const serializer = new XMLSerializer();
-    const transformedXMLString = serializer.serializeToString(resultDocument);
-    console.log(transformedXMLString);
   }
 }

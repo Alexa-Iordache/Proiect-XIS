@@ -37,6 +37,7 @@
   <!-- Șablonul pentru fiecare pacient -->
   <xsl:template match="pacient">
     <tr>
+      <!-- Apply the filter function to the row -->
       <td><xsl:value-of select="position()"/></td>
       <td><xsl:value-of select="nume"/></td>
       <td><xsl:value-of select="data_nastere"/></td>
