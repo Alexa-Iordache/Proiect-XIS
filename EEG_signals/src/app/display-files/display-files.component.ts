@@ -71,6 +71,7 @@ export class DisplayFilesComponent {
       img: patient.eeg.imagine_eeg
     }));
     this.dataSource.data = this.patients;
+    console.log(this.dataSource.data);
   }
 
   // Fetch data from XML file and transform it in HTML using XSLT file

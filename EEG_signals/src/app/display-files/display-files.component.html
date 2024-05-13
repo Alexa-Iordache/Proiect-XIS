@@ -94,18 +94,20 @@
             <div style="display: flex">
               <div style="flex: 1">{{ row.eeg_date }}</div>
               <div style="flex: 1">{{ row.interpretation }}</div>
-              <div style="flex: 1; max-width: 150px;"> <a [href]="row.img" download>{{ row.img }}</a></div>
+              <div
+                style="
+                  flex: 1;
+                  max-width: 150px;
+                  overflow: hidden;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
+                "
+              >
+                {{ row.img }}
+              </div>
             </div>
           </td>
         </ng-container>
-
-        <!-- <ng-container matColumnDef="imagePath">
-          <th mat-header-cell *matHeaderCellDef>Imagine</th>
-          <td mat-cell *matCellDef="let row">
-            <a [href]="row.imagePath" download>{{ row.img }}</a>
-          </td>
-        </ng-container> -->
-
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
