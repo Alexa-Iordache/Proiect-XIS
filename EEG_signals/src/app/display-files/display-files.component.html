@@ -84,8 +84,8 @@
             <div style="text-align: center">EEG</div>
             <div class="divider"></div>
             <div style="display: flex">
-              <div style="flex: 1">Semnale de interes</div>
-              <div style="flex: 1">Interpretare</div>
+              <div style="flex: 1">Data inregistrare</div>
+              <div style="flex: 1">Interpretare EEG</div>
               <div style="flex: 1">Imagine</div>
             </div>
           </th>
@@ -102,7 +102,13 @@
                   text-overflow: ellipsis;
                 "
               >
-                {{ row.img }}
+                <a href="{{ row.img }}" download="image.jpg">
+                  <img
+                    src="{{ row.img }}"
+                    style="max-width: 100%; height: auto"
+                    alt="{{ row.img }}"
+                  />
+                </a>
               </div>
             </div>
           </td>

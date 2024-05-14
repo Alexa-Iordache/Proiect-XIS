@@ -39,7 +39,7 @@
   <xsl:template match="pacient">
     <tr>
       <td><xsl:value-of select="position()"/></td>
-      <td><xsl:value-of select="nume"/></td>
+      <td><xsl:value-of select="concat(prenume, ' ', nume)"/></td>
       <td><xsl:value-of select="data_nastere"/></td>
       <td><xsl:value-of select="istoric_medical/alergii"/></td>
       <td><xsl:value-of select="istoric_medical/boli_cronice"/></td>

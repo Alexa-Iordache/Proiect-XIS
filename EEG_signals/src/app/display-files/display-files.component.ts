@@ -76,7 +76,7 @@ export class DisplayFilesComponent {
 
   // Fetch data from XML file and transform it in HTML using XSLT file
   private transformXmlToHtml(xmlString: string): void {
-    const xsltPath = 'assets/pacienti.xslt';
+    const xsltPath = 'assets/ProiectIordacheAlexandra.xslt';
 
     if (xsltPath) {
       const xsltProcessor = new XSLTProcessor();
