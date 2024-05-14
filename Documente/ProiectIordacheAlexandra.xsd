@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="adresa">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="str. Florilor, nr. 23, Bucuresti"/>
+				<xs:enumeration value="str. Mihai Viteazu, nr. 10, Cluj-Napoca"/>
+				<xs:enumeration value="str. Rozelor, nr. 5, Timisoara"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="alergii">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Niciuna"/>
+				<xs:enumeration value="Polen"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="amplitudine">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="10 µV"/>
+				<xs:enumeration value="11 µV"/>
+				<xs:enumeration value="12 µV"/>
+				<xs:enumeration value="13 µV"/>
+				<xs:enumeration value="14 µV"/>
+				<xs:enumeration value="15 µV"/>
+				<xs:enumeration value="9 µV"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="antecedente_chirurgicale">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Chirurgie cardiacă în 2010"/>
+				<xs:enumeration value="Niciuna"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="boli_cronice">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Hipertensiune arterială"/>
+				<xs:enumeration value="Niciuna"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="data_inregistrare">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="12-02-2024"/>
+				<xs:enumeration value="15-03-2024"/>
+				<xs:enumeration value="28-01-2024"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="data_nastere">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="05-07-1976"/>
+				<xs:enumeration value="15-09-1985"/>
+				<xs:enumeration value="20-03-1997"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="denumire_electrod">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value=" RG "/>
+				<xs:enumeration value="LA"/>
+				<xs:enumeration value="LB"/>
+				<xs:enumeration value="LE"/>
+				<xs:enumeration value="LG"/>
+				<xs:enumeration value="LH"/>
+				<xs:enumeration value="LO"/>
+				<xs:enumeration value="LQ"/>
+				<xs:enumeration value="RA"/>
+				<xs:enumeration value="RB"/>
+				<xs:enumeration value="RE"/>
+				<xs:enumeration value="RG"/>
+				<xs:enumeration value="RH"/>
+				<xs:enumeration value="RO"/>
+				<xs:enumeration value="RQ"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="diagnostic">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Epilepsie"/>
+				<xs:enumeration value="Migrenă cronică"/>
+				<xs:enumeration value="Tulburare de somn"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="eeg">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="data_inregistrare"/>
+				<xs:element ref="ora_inregistrare"/>
+				<xs:element ref="imagine_eeg"/>
+				<xs:element ref="interpretare"/>
+				<xs:element ref="semnale_eeg_de_interes"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="frecventa">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="10 Hz"/>
+				<xs:enumeration value="11 Hz"/>
+				<xs:enumeration value="12 Hz"/>
+				<xs:enumeration value="13 Hz"/>
+				<xs:enumeration value="14 Hz"/>
+				<xs:enumeration value="15 Hz"/>
+				<xs:enumeration value="8 Hz"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="imagine_eeg">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="imagini_eeg/ana_ionescu_12022024.png"/>
+				<xs:enumeration value="imagini_eeg/ioan_popescu_15032024.png"/>
+				<xs:enumeration value="imagini_eeg/maria_georgescu_28052024.png"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="interpretare" type="xs:string"/>
+	<xs:element name="istoric_medical">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="alergii"/>
+				<xs:element ref="boli_cronice"/>
+				<xs:element ref="antecedente_chirurgicale"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="nume">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Alexandru"/>
+				<xs:enumeration value="Ana"/>
+				<xs:enumeration value="Maria"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="ora_inregistrare">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="08:30"/>
+				<xs:enumeration value="10:00"/>
+				<xs:enumeration value="11:45"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="pacient">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="nume"/>
+				<xs:element ref="prenume"/>
+				<xs:element ref="data_nastere"/>
+				<xs:element ref="sex"/>
+				<xs:element ref="adresa"/>
+				<xs:element ref="istoric_medical"/>
+				<xs:element ref="diagnostic"/>
+				<xs:element ref="tratament"/>
+				<xs:element ref="eeg"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="pacienti">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="pacient" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="prenume">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Georgescu"/>
+				<xs:enumeration value="Ionescu"/>
+				<xs:enumeration value="Popescu"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="semnal">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="denumire_electrod"/>
+				<xs:element ref="amplitudine"/>
+				<xs:element ref="frecventa"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="semnale_eeg_de_interes">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="semnal" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="sex">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Feminin"/>
+				<xs:enumeration value="Masculin"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="tratament">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Analgezice"/>
+				<xs:enumeration value="Antiepileptice"/>
+				<xs:enumeration value="Somnifere"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>
