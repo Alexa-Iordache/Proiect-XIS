@@ -170,6 +170,15 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
+	<xs:complexType name="pacientExtins">
+        <xs:complexContent>
+            <xs:extension base="pacient">
+                <xs:sequence>
+                    <xs:element name="contact_urgenta" type="xs:string"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
 	<xs:element name="pacienti">
 		<xs:complexType>
 			<xs:sequence>
