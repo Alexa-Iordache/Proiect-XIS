@@ -1,6 +1,7 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { parseString } from 'xml2js';
 
 // Interface for a patient (row in a table)
 export interface PatientData {
@@ -27,6 +28,7 @@ export class DisplayFilesComponent {
   @Input() jsonContent: string | undefined;
 
   patients: any[] = [];
+  patientsData: any[] = [];
   displayedColumns: string[] = [
     'id',
     'name',
@@ -34,7 +36,7 @@ export class DisplayFilesComponent {
     'medical_history',
     'diagnosis',
     'treatment',
-    'eeg_signals'
+    'eeg_signals',
   ];
   dataSource: MatTableDataSource<PatientData> = new MatTableDataSource();
   transformedHtml = '';
@@ -46,6 +48,7 @@ export class DisplayFilesComponent {
   ngOnChanges(): void {
     if (this.xmlContent) {
       this.transformXmlToHtml(this.xmlContent);
+      this.parseXML(this.xmlContent);
     }
 
     if (this.jsonContent) {
@@ -68,10 +71,39 @@ export class DisplayFilesComponent {
       treatment: patient.tratament,
       eeg_date: patient.eeg.data_inregistrare,
       interpretation: patient.eeg.interpretare,
-      img: patient.eeg.imagine_eeg
+      img: patient.eeg.imagine_eeg,
     }));
     this.dataSource.data = this.patients;
     console.log(this.dataSource.data);
+  }
+
+  private parseXML(xmlString: string): void {
+    parseString(xmlString, (err, result) => {
+      if (err) {
+        console.error('Failed to parse XML:', err);
+        return;
+      }
+
+      this.patientsData = result.pacienti.pacient.map(
+        (patient: any, index: number) => ({
+          id: (index + 1).toString(),
+          name: `${patient.nume[0]} ${patient.prenume[0]}`,
+          birthDate: patient.data_nastere[0],
+          allergies: patient.istoric_medical[0].alergii[0],
+          chronic_diseases: patient.istoric_medical[0].boli_cronice[0],
+          surgical_history:
+            patient.istoric_medical[0].antecedente_chirurgicale[0],
+          diagnosis: patient.diagnostic[0],
+          treatment: patient.tratament[0],
+          eeg_date: patient.eeg[0].data_inregistrare[0],
+          interpretation: patient.eeg[0].interpretare[0],
+          img: patient.eeg[0].imagine_eeg[0],
+        })
+      );
+
+      // this.dataSource.data = this.patientsData;
+      console.log(this.patientsData);
+    });
   }
 
   // Fetch data from XML file and transform it in HTML using XSLT file

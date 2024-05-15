@@ -128,4 +128,18 @@
       ></mat-paginator>
     </div>
   </div>
+
+  <div *ngIf="patientsData" class="patient-main-container">
+    <div *ngFor="let patient of patientsData" class="patient-container">
+      <h2>{{patient.name}}</h2>
+      <p><strong>Data nasterii:</strong> {{ patient.birthDate }}</p>
+      <p><strong>Alergii</strong> {{ patient.allergies == 'Niciuna' ? '-' : patient.allergies }}</p>
+      <p><strong>Boli cronice</strong> {{ patient.chronic_diseases == 'Niciuna' ? '-' : patient.chronic_diseases}}</p>
+      <p><strong>Antecedente medicale</strong> {{ patient.surgical_history  == 'Niciuna' ? '-' : patient.surgical_history}}</p>
+      <p><strong>Dignostic:</strong> {{ patient.diagnosis }}</p>
+      <p><strong>TRatament:</strong> {{ patient.treatment }}</p>
+      <p><strong>Date EEG:</strong> {{ patient.eeg_date }}</p>
+      <p><strong>Interpretare EEG:</strong> {{ patient.interpretation }}</p>
+    </div>
+  </div>
 </div>

@@ -39,4 +39,19 @@
     margin-top: 50px;
     padding-bottom: 100px;
   }
+
+  .patient-main-container {
+    max-width: 70%;
+
+    .patient-container {
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      border-radius: 7px;
+      color: black;
+      width: 100%;
+      margin-bottom: 30px;
+      padding: 20px;
+    }
+  }
 }
